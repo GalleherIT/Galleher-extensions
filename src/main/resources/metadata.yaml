@@ -1,21 +1,1146 @@
 metadataVersion: 1
 extensions:
-  - name: CustomerCreditCheckP1
+  - name: OIS105_tax
     triggers:
       - type: METHOD
-        program: CRS610
+        program: OIS105
         programType: INTERACTIVE
-        method: PJINZ
-        advice: PRE
-    priority: 500
-    utilities:
-  - name: CustomerCreditCheckP2
-    triggers:
-      - type: METHOD
-        program: CRS610
-        programType: INTERACTIVE
-        method: PJINZ
+        method: PEINZ
         advice: POST
     priority: 500
     utilities:
+
+apis:
+  - name: EXT001MI
+    transactions:
+      - name: AddFieldValue
+        description:Add Data in EXTCUS table
+        type:single
+        inputs:
+          - name:CONO
+            description:company
+            length:3
+            type:N
+            mandatory:false
+          - name:FILE
+            description:table
+            length:10
+            type:A
+            mandatory:true
+            - name:PK01
+            description:primary key 1
+            length:30
+            type:A
+            mandatory:true
+            - name:PK02
+            description:primary key 2
+            length:30
+            type:A
+            mandatory:false
+            - name:PK03
+            description:primary key 3
+            length:30
+            type:A
+            mandatory:false
+            - name:PK04
+            description:primary key 4
+            length:30
+            type:A
+            mandatory:false
+            - name:PK05
+            description:primary key 5
+            length:30
+            type:A
+            mandatory:false
+            - name:PK06
+            description:primary key 6
+            length:30
+            type:A
+            mandatory:false
+            - name:PK07
+            description:primary key 7
+            length:30
+            type:A
+            mandatory:false
+            - name:PK08
+            description:primary key 8
+            length:30
+            type:A
+            mandatory:false
+            - name:A030
+            description:Aplha field 30 1
+            length:30
+            type:A
+            mandatory:false
+            - name:A130
+            description:Aplha field 30 2
+            length:30
+            type:A
+            mandatory:false
+            - name:A230
+            description:Aplha field 30 3
+            length:30
+            type:A
+            mandatory:false
+            - name:A330
+            description:Aplha field 30 4
+            length:30
+            type:A
+            mandatory:false
+            - name:A430
+            description:Aplha field 30 5
+            length:30
+            type:A
+            mandatory:false
+            - name:A530
+            description:Aplha field 30 6
+            length:30
+            type:A
+            mandatory:false
+            - name:A630
+            description:Aplha field 30 7
+            length:30
+            type:A
+            mandatory:false
+            - name:A730
+            description:Aplha field 30 8
+            length:30
+            type:A
+            mandatory:false
+            - name:A830
+            description:Aplha field 30 9
+            length:30
+            type:A
+            mandatory:false
+             - name:A930
+            description:Aplha field 30 10
+            length:30
+            type:A
+            mandatory:false
+             - name:N096
+            description:Numeric field 1
+            length:18
+            type:N
+            mandatory:false
+            - name:N196
+            description:Numeric field 2
+            length:18
+            type:N
+            mandatory:false
+            - name:N296
+            description:Numeric field 3
+            length:18
+            type:N
+            mandatory:false
+            - name:N396
+            description:Numeric field 4
+            length:18
+            type:N
+            mandatory:false
+            - name:N496
+            description:Numeric field 5
+            length:18
+            type:N
+            mandatory:false
+            - name:N596
+            description:Numeric field 6
+            length:18
+            type:N
+            mandatory:false
+            - name:N696
+            description:Numeric field 7
+            length:18
+            type:N
+            mandatory:false
+            - name:N796
+            description:Numeric field 8
+            length:18
+            type:N
+            mandatory:false
+            - name:N896
+            description:Numeric field 9
+            length:18
+            type:N
+            mandatory:false
+             - name:N996
+            description:Numeric field 10
+            length:18
+            type:N
+            mandatory:false
+             - name:MIGR
+            description:Migrated
+            length:1
+            type:N
+            mandatory:false
+             - name:A256
+            description:Alphanumeric 256
+            length:256
+            type:A
+            mandatory:false
+            - name:A121
+            description:Alphanumeric 120 field 1
+            length:120
+            type:A
+            mandatory:false
+            - name:A122
+            description:Alphanumeric 120 field 2
+            length:120
+            type:A
+            mandatory:false
+            - name:DTID
+            description:Data identity
+            length:13
+            type:N
+            mandatory:false
+            - name:TXID
+            description:Text identity
+            length:13
+            type:N
+            mandatory:false
+            - name:CHB1
+            description:Yes/No field 1
+            length:1
+            type:N
+            mandatory:false
+            - name:CHB2
+            description:Yes/No field 2
+            length:1
+            type:N
+            mandatory:false
+            - name:CHB3
+            description:Yes/No field 3
+            length:1
+            type:N
+            mandatory:false
+            - name:CHB4
+            description:Yes/No field 4
+            length:1
+            type:N
+            mandatory:false
+            - name:DAT1
+            description:Date field 1
+            length:8
+            type:N
+            mandatory:false
+            - name:DAT2
+            description:Date field 2
+            length:8
+            type:N
+            mandatory:false
+            - name:DAT3
+            description:Date field 3
+            length:8
+            type:N
+            mandatory:false
+            - name:DAT4
+            description:Date field 4
+            length:8
+            type:N
+            mandatory:false
+           outputs: 
+            - name:APIR
+            description:API Response
+            length:100
+            type:A
+            mandatory:
+
+      - name: ChgFieldValue
+          description:Update data in EXTCUS table
+          type:single
+          inputs:
+            - name:CONO
+            description:company
+            length:3
+            type:N
+            mandatory:false
+          - name:FILE
+            description:table
+            length:10
+            type:A
+            mandatory:true
+            - name:PK01
+            description:primary key 1
+            length:30
+            type:A
+            mandatory:true
+            - name:PK02
+            description:primary key 2
+            length:30
+            type:A
+            mandatory:false
+            - name:PK03
+            description:primary key 3
+            length:30
+            type:A
+            mandatory:false
+            - name:PK04
+            description:primary key 4
+            length:30
+            type:A
+            mandatory:false
+            - name:PK05
+            description:primary key 5
+            length:30
+            type:A
+            mandatory:false
+            - name:PK06
+            description:primary key 6
+            length:30
+            type:A
+            mandatory:false
+            - name:PK07
+            description:primary key 7
+            length:30
+            type:A
+            mandatory:false
+            - name:PK08
+            description:primary key 8
+            length:30
+            type:A
+            mandatory:false
+            - name:A030
+            description:Aplha field 30 1
+            length:30
+            type:A
+            mandatory:false
+            - name:A130
+            description:Aplha field 30 2
+            length:30
+            type:A
+            mandatory:false
+            - name:A230
+            description:Aplha field 30 3
+            length:30
+            type:A
+            mandatory:false
+            - name:A330
+            description:Aplha field 30 4
+            length:30
+            type:A
+            mandatory:false
+            - name:A430
+            description:Aplha field 30 5
+            length:30
+            type:A
+            mandatory:false
+            - name:A530
+            description:Aplha field 30 6
+            length:30
+            type:A
+            mandatory:false
+            - name:A630
+            description:Aplha field 30 7
+            length:30
+            type:A
+            mandatory:false
+            - name:A730
+            description:Aplha field 30 8
+            length:30
+            type:A
+            mandatory:false
+            - name:A830
+            description:Aplha field 30 9
+            length:30
+            type:A
+            mandatory:false
+             - name:A930
+            description:Aplha field 30 10
+            length:30
+            type:A
+            mandatory:false
+             - name:N096
+            description:Numeric field 1
+            length:18
+            type:N
+            mandatory:false
+            - name:N196
+            description:Numeric field 2
+            length:18
+            type:N
+            mandatory:false
+            - name:N296
+            description:Numeric field 3
+            length:18
+            type:N
+            mandatory:false
+            - name:N396
+            description:Numeric field 4
+            length:18
+            type:N
+            mandatory:false
+            - name:N496
+            description:Numeric field 5
+            length:18
+            type:N
+            mandatory:false
+            - name:N596
+            description:Numeric field 6
+            length:18
+            type:N
+            mandatory:false
+            - name:N696
+            description:Numeric field 7
+            length:18
+            type:N
+            mandatory:false
+            - name:N796
+            description:Numeric field 8
+            length:18
+            type:N
+            mandatory:false
+            - name:N896
+            description:Numeric field 9
+            length:18
+            type:N
+            mandatory:false
+             - name:N996
+            description:Numeric field 10
+            length:18
+            type:N
+            mandatory:false
+             - name:MIGR
+            description:Migrated
+            length:1
+            type:N
+            mandatory:false
+             - name:A256
+            description:Alphanumeric 256
+            length:256
+            type:A
+            mandatory:false
+            - name:A121
+            description:Alphanumeric 120 field 1
+            length:120
+            type:A
+            mandatory:false
+            - name:A122
+            description:Alphanumeric 120 field 2
+            length:120
+            type:A
+            mandatory:false
+            - name:DTID
+            description:Data identity
+            length:13
+            type:N
+            mandatory:false
+            - name:TXID
+            description:Text identity
+            length:13
+            type:N
+            mandatory:false
+            - name:CHB1
+            description:Yes/No field 1
+            length:1
+            type:N
+            mandatory:false
+            - name:CHB2
+            description:Yes/No field 2
+            length:1
+            type:N
+            mandatory:false
+            - name:CHB3
+            description:Yes/No field 3
+            length:1
+            type:N
+            mandatory:false
+            - name:CHB4
+            description:Yes/No field 4
+            length:1
+            type:N
+            mandatory:false
+            - name:DAT1
+            description:Date field 1
+            length:8
+            type:N
+            mandatory:false
+            - name:DAT2
+            description:Date field 2
+            length:8
+            type:N
+            mandatory:false
+            - name:DAT3
+            description:Date field 3
+            length:8
+            type:N
+            mandatory:false
+            - name:DAT4
+            description:Date field 4
+            length:8
+            type:N
+            mandatory:false
+           outputs:
+             - name:APIR
+            description:API Response
+            length:100
+            type:A
+            mandatory:
+
+      - name: DelFieldValue
+          description:Delete data from EXTCUS table
+          type:single
+          inputs:
+            - name:CONO
+            description:company
+            length:3
+            type:N
+            mandatory:false
+          - name:FILE
+            description:table
+            length:10
+            type:A
+            mandatory:true
+            - name:PK01
+            description:primary key 1
+            length:30
+            type:A
+            mandatory:true
+            - name:PK02
+            description:primary key 2
+            length:30
+            type:A
+            mandatory:false
+            - name:PK03
+            description:primary key 3
+            length:30
+            type:A
+            mandatory:false
+            - name:PK04
+            description:primary key 4
+            length:30
+            type:A
+            mandatory:false
+            - name:PK05
+            description:primary key 5
+            length:30
+            type:A
+            mandatory:false
+            - name:PK06
+            description:primary key 6
+            length:30
+            type:A
+            mandatory:false
+            - name:PK07
+            description:primary key 7
+            length:30
+            type:A
+            mandatory:false
+            - name:PK08
+            description:primary key 8
+            length:30
+            type:A
+            mandatory:false
+          outputs:
+             - name:APIR
+            description:API Response
+            length:100
+            type:A
+            mandatory:
+
+      - name: LstFieldValue
+          description:List data from EXTCUS table
+          type:Multi
+          inputs:
+            - name:CONO
+            description:company
+            length:3
+            type:N
+            mandatory:false
+          - name:FILE
+            description:table
+            length:10
+            type:A
+            mandatory:true
+            - name:PK01
+            description:primary key 1
+            length:10
+            type:A
+            mandatory:true
+            - name:PK02
+            description:primary key 2
+            length:10
+            type:A
+            mandatory:false
+            - name:PK03
+            description:primary key 3
+            length:10
+            type:A
+            mandatory:false
+            - name:PK04
+            description:primary key 4
+            length:10
+            type:A
+            mandatory:false
+            - name:PK05
+            description:primary key 5
+            length:10
+            type:A
+            mandatory:false
+            - name:PK06
+            description:primary key 6
+            length:10
+            type:A
+            mandatory:false
+            - name:PK07
+            description:primary key 7
+            length:10
+            type:A
+            mandatory:false
+            - name:PK08
+            description:primary key 8
+            length:10
+            type:A
+            mandatory:false
+          outputs:
+             - name:APIR
+            description:API Response
+            length:100
+            type:A
+            mandatory:
+            - name:CONO
+            description:company
+            length:3
+            type:N
+            mandatory:
+          - name:FILE
+            description:table
+            length:10
+            type:A
+            mandatory:
+            - name:PK01
+            description:primary key 1
+            length:10
+            type:A
+            mandatory:
+            - name:PK02
+            description:primary key 2
+            length:10
+            type:A
+            mandatory:
+            - name:PK03
+            description:primary key 3
+            length:10
+            type:A
+            mandatory:
+            - name:PK04
+            description:primary key 4
+            length:10
+            type:A
+            mandatory:
+            - name:PK05
+            description:primary key 5
+            length:10
+            type:A
+            mandatory:
+            - name:PK06
+            description:primary key 6
+            length:10
+            type:A
+            mandatory:
+            - name:PK07
+            description:primary key 7
+            length:10
+            type:A
+            mandatory:
+            - name:PK08
+            description:primary key 8
+            length:10
+            type:A
+            mandatory:
+            - name:A030
+            description:Aplha field 30 1
+            length:30
+            type:A
+            mandatory:
+            - name:A130
+            description:Aplha field 30 2
+            length:30
+            type:A
+            mandatory:
+            - name:A230
+            description:Aplha field 30 3
+            length:30
+            type:A
+            mandatory:
+            - name:A330
+            description:Aplha field 30 4
+            length:30
+            type:A
+            mandatory:
+            - name:A430
+            description:Aplha field 30 5
+            length:30
+            type:A
+            mandatory:
+            - name:A530
+            description:Aplha field 30 6
+            length:30
+            type:A
+            mandatory:
+            - name:A630
+            description:Aplha field 30 7
+            length:30
+            type:A
+            mandatory:
+            - name:A730
+            description:Aplha field 30 8
+            length:30
+            type:A
+            mandatory:
+            - name:A830
+            description:Aplha field 30 9
+            length:30
+            type:A
+            mandatory:
+             - name:A930
+            description:Aplha field 30 10
+            length:30
+            type:A
+            mandatory:
+             - name:N096
+            description:Numeric field 1
+            length:18
+            type:N
+            mandatory:
+            - name:N196
+            description:Numeric field 2
+            length:18
+            type:N
+            mandatory:
+            - name:N296
+            description:Numeric field 3
+            length:18
+            type:N
+            mandatory:
+            - name:N396
+            description:Numeric field 4
+            length:18
+            type:N
+            mandatory:
+            - name:N496
+            description:Numeric field 5
+            length:18
+            type:N
+            mandatory:
+            - name:N596
+            description:Numeric field 6
+            length:18
+            type:N
+            mandatory:
+            - name:N696
+            description:Numeric field 7
+            length:18
+            type:N
+            mandatory:
+            - name:N796
+            description:Numeric field 8
+            length:18
+            type:N
+            mandatory:
+            - name:N896
+            description:Numeric field 9
+            length:18
+            type:N
+            mandatory:
+             - name:N996
+            description:Numeric field 10
+            length:18
+            type:N
+            mandatory:
+             - name:MIGR
+            description:Migrated
+            length:1
+            type:N
+            mandatory:
+             - name:A256
+            description:Alphanumeric 256
+            length:256
+            type:A
+            mandatory:
+            - name:A121
+            description:Alphanumeric 120 field 1
+            length:120
+            type:A
+            mandatory:
+            - name:A122
+            description:Alphanumeric 120 field 2
+            length:120
+            type:A
+            mandatory:
+            - name:DTID
+            description:Data identity
+            length:13
+            type:N
+            mandatory:
+            - name:TXID
+            description:Text identity
+            length:13
+            type:N
+            mandatory:
+            - name:CHB1
+            description:Yes/No field 1
+            length:1
+            type:N
+            mandatory:
+            - name:CHB2
+            description:Yes/No field 2
+            length:1
+            type:N
+            mandatory:
+            - name:CHB3
+            description:Yes/No field 3
+            length:1
+            type:N
+            mandatory:
+            - name:CHB4
+            description:Yes/No field 4
+            length:1
+            type:N
+            mandatory:
+            - name:DAT1
+            description:Date field 1
+            length:8
+            type:N
+            mandatory:
+            - name:DAT2
+            description:Date field 2
+            length:8
+            type:N
+            mandatory:
+            - name:DAT3
+            description:Date field 3
+            length:8
+            type:N
+            mandatory:
+            - name:DAT4
+            description:Date field 4
+            length:8
+            type:N
+            mandatory:
+            - name:RGDT
+            description:entry date
+            length:8
+            type:N
+            mandatory:
+            - name:RGTM
+            description:entry time
+            length:8
+            type:N
+            mandatory:
+            - name:LMDT
+            description:change date
+            length:8
+            type:N
+            mandatory:
+            - name:CHID
+            description:change by
+            length:10
+            type:A
+            mandatory:
+            
+      - name: LstDatausgRange
+          description:List all Data Using Range
+          type:Multi
+          inputs:
+            - name:CONO
+            description:company
+            length:3
+            type:N
+            mandatory:false
+            - name:FILE
+            description:table
+            length:10
+            type:A
+            mandatory:true
+            - name:FK01
+            description:From Date
+            length:10
+            type:A
+            mandatory:true
+            - name:TK01
+            description:To Date
+            length:10
+            type:A
+            mandatory:true
+            - name:A530
+            description:Alphanumeric Field 5
+            length:30
+            type:A
+            mandatory:true
+            - name:PK02
+            description:primary key 2
+            length:10
+            type:A
+            mandatory:false
+            - name:PK03
+            description:primary key 3
+            length:10
+            type:A
+            mandatory:false
+            - name:PK04
+            description:primary key 4
+            length:10
+            type:A
+            mandatory:false
+            - name:PK05
+            description:primary key 5
+            length:10
+            type:A
+            mandatory:false
+            - name:PK06
+            description:primary key 6
+            length:10
+            type:A
+            mandatory:false
+            - name:PK07
+            description:primary key 7
+            length:10
+            type:A
+            mandatory:false
+            - name:PK08
+            description:primary key 8
+            length:10
+            type:A
+            mandatory:false
+           outputs:
+            - name:CONO
+            description:company
+            length:3
+            type:N
+            mandatory:
+          - name:FILE
+            description:table
+            length:10
+            type:A
+            mandatory:
+            - name:PK01
+            description:primary key 1
+            length:10
+            type:A
+            mandatory:
+            - name:PK02
+            description:primary key 2
+            length:10
+            type:A
+            mandatory:
+            - name:PK03
+            description:primary key 3
+            length:10
+            type:A
+            mandatory:
+            - name:PK04
+            description:primary key 4
+            length:10
+            type:A
+            mandatory:
+            - name:PK05
+            description:primary key 5
+            length:10
+            type:A
+            mandatory:
+            - name:PK06
+            description:primary key 6
+            length:10
+            type:A
+            mandatory:
+            - name:PK07
+            description:primary key 7
+            length:10
+            type:A
+            mandatory:
+            - name:PK08
+            description:primary key 8
+            length:10
+            type:A
+            mandatory:
+            - name:A030
+            description:Aplha field 30 1
+            length:30
+            type:A
+            mandatory:
+            - name:A130
+            description:Aplha field 30 2
+            length:30
+            type:A
+            mandatory:
+            - name:A230
+            description:Aplha field 30 3
+            length:30
+            type:A
+            mandatory:
+            - name:A330
+            description:Aplha field 30 4
+            length:30
+            type:A
+            mandatory:
+            - name:A430
+            description:Aplha field 30 5
+            length:30
+            type:A
+            mandatory:
+            - name:A530
+            description:Aplha field 30 6
+            length:30
+            type:A
+            mandatory:
+            - name:A630
+            description:Aplha field 30 7
+            length:30
+            type:A
+            mandatory:
+            - name:A730
+            description:Aplha field 30 8
+            length:30
+            type:A
+            mandatory:
+            - name:A830
+            description:Aplha field 30 9
+            length:30
+            type:A
+            mandatory:
+            - name:A930
+            description:Aplha field 30 10
+            length:30
+            type:A
+            mandatory:
+             - name:N096
+            description:Numeric field 1
+            length:18
+            type:N
+            mandatory:
+            - name:N196
+            description:Numeric field 2
+            length:18
+            type:N
+            mandatory:
+            - name:N296
+            description:Numeric field 3
+            length:18
+            type:N
+            mandatory:
+            - name:N396
+            description:Numeric field 4
+            length:18
+            type:N
+            mandatory:
+            - name:N496
+            description:Numeric field 5
+            length:18
+            type:N
+            mandatory:
+            - name:N596
+            description:Numeric field 6
+            length:18
+            type:N
+            mandatory:
+            - name:N696
+            description:Numeric field 7
+            length:18
+            type:N
+            mandatory:
+            - name:N796
+            description:Numeric field 8
+            length:18
+            type:N
+            mandatory:
+            - name:N896
+            description:Numeric field 9
+            length:18
+            type:N
+            mandatory:
+             - name:N996
+            description:Numeric field 10
+            length:18
+            type:N
+            mandatory:
+             - name:MIGR
+            description:Migrated
+            length:1
+            type:N
+            mandatory:
+             - name:A256
+            description:Alphanumeric 256
+            length:256
+            type:A
+            mandatory:
+            - name:A121
+            description:Alphanumeric 120 field 1
+            length:120
+            type:A
+            mandatory:
+            - name:A122
+            description:Alphanumeric 120 field 2
+            length:120
+            type:A
+            mandatory:
+            - name:DTID
+            description:Data identity
+            length:13
+            type:N
+            mandatory:
+            - name:TXID
+            description:Text identity
+            length:13
+            type:N
+            mandatory:
+            - name:CHB1
+            description:Yes/No field 1
+            length:1
+            type:N
+            mandatory:
+            - name:CHB2
+            description:Yes/No field 2
+            length:1
+            type:N
+            mandatory:
+            - name:CHB3
+            description:Yes/No field 3
+            length:1
+            type:N
+            mandatory:
+            - name:CHB4
+            description:Yes/No field 4
+            length:1
+            type:N
+            mandatory:
+            - name:DAT1
+            description:Date field 1
+            length:8
+            type:N
+            mandatory:
+            - name:DAT2
+            description:Date field 2
+            length:8
+            type:N
+            mandatory:
+            - name:DAT3
+            description:Date field 3
+            length:8
+            type:N
+            mandatory:
+            - name:DAT4
+            description:Date field 4
+            length:8
+            type:N
+            mandatory:
+            - name:RGDT
+            description:entry date
+            length:8
+            type:N
+            mandatory:
+            - name:RGTM
+            description:entry time
+            length:8
+            type:N
+            mandatory:
+            - name:LMDT
+            description:change date
+            length:8
+            type:N
+            mandatory:
+            - name:CHID
+            description:change by
+            length:10
+            type:A
+            mandatory:
+            
 
