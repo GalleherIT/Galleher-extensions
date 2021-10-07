@@ -1,6 +1,6 @@
 metadataVersion: 1
 extensions:
-  - name: OIS105_tax
+  - name: SLS_IW_EXT005_InzTaxCode
     triggers:
       - type: METHOD
         program: OIS105
